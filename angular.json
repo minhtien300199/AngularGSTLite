@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontangular"
+    }
+  },
+  "defaultProject": "frontangular",
+  "cli": {
+    "analytics": false
+  }
 }
