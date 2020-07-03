@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,10 +16,11 @@ export class HeaderComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {}
-    public onLogout = () => {
-        this.authenticationService.logout();
-        this.router.navigateByUrl('/login');
-      }
+  ngOnInit(): void { }
+  public onLogout = () => {
+    this.authenticationService.logout();
+    this.router.navigateByUrl('/login');
+  }
 
+  faShoppingCart = faShoppingCart;
 }
