@@ -9,13 +9,15 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { AddProcductComponent } from './add-procduct/add-procduct.component';
+import { DetailsProductComponent } from './details-product/details-product.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
     ProductsComponent,
-    AddProcductComponent
+    AddProcductComponent,
+    DetailsProductComponent
   ],
   imports: [
     BrowserModule,

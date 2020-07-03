@@ -15,7 +15,12 @@ const routes: Routes = [{
 {
   path: 'addProduct',
   component: AddProcductComponent
-}];
+},
+{
+  path: 'detailsProduct',
+
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
