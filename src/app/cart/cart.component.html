@@ -1,1 +1,67 @@
-<p>cart works!</p>
+<app-header title="My Cart" subtitle="All selected products in your cart" button=""></app-header>
+
+<div class="container">
+  <div>
+    <button class="btn btn-danger float-left" style="margin-bottom:1%">
+      <fa-icon [icon]="faTrashAlt"></fa-icon>
+      Clear Cart
+    </button>
+
+    <button class="btn btn-success float-right">
+      <fa-icon [icon]="faShoppingCart"></fa-icon>
+      Check Out
+    </button>
+  </div>
+  
+  <table class="table" >
+    <tr>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit price</th>
+      <th scope="col">Price</th>
+      <th scope="col">Action</th>
+    </tr>
+    <tr>
+      <td style="width: 40%;">Iphone XS Pro Maximum 512 Gigabytes</td>
+      <td>1</td>
+      <td>{{1500 | currency}}</td>
+      <td>{{1500 | currency}}</td>
+      <td><button class="btn btn-danger" style="margin-top:-3%">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+          Remove
+        </button></td>
+
+    </tr>
+    <tr>
+      <td>Iphone X</td>
+      <td>1</td>
+      <td>{{1500 | currency}}</td>
+      <td>{{1500 | currency}}</td>
+      <td><button class="btn btn-danger" style="margin-top:-3%">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+          Remove
+        </button></td>
+
+    </tr>
+    <tr>
+      <td>Iphone X</td>
+      <td>1</td>
+      <td>{{1500 | currency}}</td>
+      <td>{{1500 | currency}}</td>
+      <td><button class="btn btn-danger" style="margin-top:-3%">
+          <fa-icon [icon]="faTrashAlt"></fa-icon>
+          Remove
+        </button></td>
+
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td><b>Grand Total:</b></td>
+      <td>{{5500 | currency}}</td>
+      <td></td>
+
+    </tr>
+  </table>
+</div>

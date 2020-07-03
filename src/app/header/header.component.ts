@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../login/authentication.service';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -23,4 +23,5 @@ export class HeaderComponent implements OnInit {
   }
 
   faShoppingCart = faShoppingCart;
+  faSignOutAlt = faSignOutAlt;
 }
