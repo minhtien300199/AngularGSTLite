@@ -1,11 +1,8 @@
 <app-header title="Products" subtitle="All available Products in our store" button="view-cart"></app-header>
-<div class="container">
+<div class="container-fuild">
     <div class="row">
-
-
-
-        <div *ngFor="let data of listProduct;" class="col-3">
-            <div class="card" style="width: 18rem;">
+        <div *ngFor="let data of listProduct;" class="col-3 d-flex justify-content-center">
+            <div class="card" style="width: 18em;">
                 <div class="card-body">
                     <h5 class="card-title">{{data.productName}}</h5>
                     <img src="https://picsum.photos/200/300" alt="test">
@@ -22,12 +19,6 @@
                         Order now</button>
                 </div>
             </div>
-            
         </div>
-
-
-
-
-        
     </div>
 </div>
