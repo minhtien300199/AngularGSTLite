@@ -22,11 +22,11 @@ const routes: Routes = [{
   path: 'cart',
   component: CartComponent
 },
+{
   path: 'detailsProduct',
   component: DetailsProductComponent
 }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
