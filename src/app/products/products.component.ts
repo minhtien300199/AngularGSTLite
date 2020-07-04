@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { faShoppingCart, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ProductService} from './product.service';
+import {CartService} from '../cart/cart.service';
 import { Router } from '@angular/router';
 import { Product } from './model';
 @Component({
@@ -11,6 +12,7 @@ import { Product } from './model';
 export class ProductsComponent implements OnInit, AfterViewInit {
   public productsArr = [];
   listProduct: Product[] = new Array();
+  private cart = new CartService();
   faShoppingCart = faShoppingCart;
   faInfoCircle = faInfoCircle;
   constructor(
@@ -21,7 +23,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     this.getListProduct();
   }
   addProductToCart = (obj: object) => {
-    this.productService.addCart(obj);
+    this.cart.addCart(obj);
   }
 
   getListProduct = () => {
