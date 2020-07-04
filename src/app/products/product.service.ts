@@ -8,15 +8,21 @@ import { map } from 'rxjs/operators';
     providedIn: 'root',
 })
 export class ProductService {
-    public  listProduct:Product[] = new Array()
-    private urlAPI = 'https://5eff224edfd1400016ae0db5.mockapi.io/RESTfulAPIusingSpringBoot';
+    public  listProduct: Product[] = new Array();
+    private urlAPI = 'http://demo4279480.mockable.io';
     constructor(private http: HttpClient) {
 
     }
-
+    public addCart = (obj) => {
+        obj.quantity = 2;
+        console.log(obj);
+        // if (obj) {
+            
+        // }
+    }
     public getListProduct = () => {
 
-        const getListProductUrl = `${this.urlAPI}/product`;
+        const getListProductUrl = `${this.urlAPI}/products`;
         console.log(getListProductUrl);
 
         return this.http
@@ -25,12 +31,17 @@ export class ProductService {
                 map((listProduct) => {
                     console.log(listProduct);
                     if (listProduct != null) {
-                        listProduct.forEach(element => {
+                        listProduct.forEach(item => {
                             const product = {} as Product;
-                            product.id = element.id;
-                            product.productName = element.product_name;
-                            product.price = element.unit_price;
-                            console.log(product)
+                            product.id = item.id;
+                            product.productName = item.product_name;
+                            product.unitPrice = item.unit_price;
+                            product.description = item.description;
+                            product.unitInStock = item.unit_in_stock;
+                            product.productCondition = item.productCondition;
+                            product.manufacturer = item.manufacturer;
+                            product.imgPath = item.imgPath;
+                            console.log(product);
                             this.listProduct.push(product);
                         });
                         return this.listProduct;

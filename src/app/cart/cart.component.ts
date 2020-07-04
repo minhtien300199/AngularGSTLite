@@ -8,11 +8,12 @@ import { faShoppingCart, faTrashAlt, faArrowCircleLeft } from '@fortawesome/free
 })
 export class CartComponent implements OnInit {
   public cart: [];
+  faTrashAlt = faTrashAlt;
+  faShoppingCart = faShoppingCart;
+  faArrowCircleLeft = faArrowCircleLeft;
   constructor() { }
 
   ngOnInit(): void {
   }
-  faTrashAlt = faTrashAlt;
-  faShoppingCart = faShoppingCart;
-  faArrowCircleLeft = faArrowCircleLeft;
+
 }

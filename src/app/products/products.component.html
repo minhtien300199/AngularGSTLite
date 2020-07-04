@@ -10,16 +10,16 @@
                     <h5 class="card-title">{{data.productName}}</h5>
                     <img src="https://picsum.photos/200/300" alt="test">
                     <p></p>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{data.description}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="money">{{data.price}} USD</p>
+                    <p class="money">{{data.unitPrice}} USD</p>
                     <a href="detailsProduct" class="card-link btn btn-primary">
                         <fa-icon [icon]="faInfoCircle"></fa-icon>
                         Detail
                     </a>
-                    <a href="#" class="card-link btn btn-warning">
+                    <button (click)="addProductToCart(data)" class="card-link btn btn-warning">
                         <fa-icon [icon]="faShoppingCart"></fa-icon>
-                        Order now</a>
+                        Order now</button>
                 </div>
             </div>
             

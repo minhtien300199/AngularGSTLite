@@ -10,27 +10,30 @@ import { Product } from './model';
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
   public productsArr = [];
+  listProduct: Product[] = new Array();
+  faShoppingCart = faShoppingCart;
+  faInfoCircle = faInfoCircle;
   constructor(
     private productService: ProductService,
     private router: Router
   ) { }
   ngAfterViewInit(): void {
-    this.getListProduct()
+    this.getListProduct();
+  }
+  addProductToCart = (obj: object) => {
+    this.productService.addCart(obj);
   }
 
-  listProduct:Product[] = new Array()
-
-  getListProduct = () =>{
+  getListProduct = () => {
     this.productService.getListProduct().subscribe(
-      (data) =>{
-        console.log(data)
+      (data) => {
+        console.log(data);
         this.listProduct = data;
-      }
-      )
+        this.productsArr = data;
+      });
   }
 
   ngOnInit(): void {
   }
-  faShoppingCart = faShoppingCart;
-  faInfoCircle = faInfoCircle;
+
 }
