@@ -2,7 +2,7 @@
 
 <div class="container" *ngIf="tableShow; else elseBlock">
   <div>
-    <button class="btn btn-danger float-left" style="margin-bottom:1%">
+    <button class="btn btn-danger float-left" style="margin-bottom:1%" (click)="removeAllProducts()">
       <fa-icon [icon]="faTrashAlt"></fa-icon>
       Clear Cart
     </button>

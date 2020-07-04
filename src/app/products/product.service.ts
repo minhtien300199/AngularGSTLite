@@ -13,12 +13,9 @@ export class ProductService {
     constructor(private http: HttpClient) {
 
     }
-    public addCart = (obj) => {
-        obj.quantity = 2;
-        console.log(obj);
-        // if (obj) {
-            
-        // }
+    public getCartNum = () => {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        return cart.length;
     }
     public getListProduct = () => {
 

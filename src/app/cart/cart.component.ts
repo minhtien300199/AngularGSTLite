@@ -29,7 +29,18 @@ export class CartComponent implements OnInit, AfterViewInit {
   showCart = () => {
     this.carts = this.cartService.showCart();
   }
+  removeAllProducts = () => {
+    this.carts = this.cartService.removeAll();
+    this.total = 0;
+    this.tableShow = false;
+  }
   removeOneProduct = (id) => {
     this.carts = this.cartService.removeOne(id);
+    this.total = this.cartService.sumCart();
+    if (this.carts.length !== 0) {
+      this.tableShow = true;
+    }else {
+      this.tableShow = false;
+    }
   }
 }

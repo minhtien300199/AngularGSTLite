@@ -52,6 +52,11 @@ export class CartService {
     localStorage.setItem('cart', JSON.stringify(newCart));
     return newCart;
   }
+  public removeAll = () => {
+    const newCart = [];
+    localStorage.setItem('cart', JSON.stringify(newCart));
+    return newCart;
+  }
   public showCart = () => {
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     return cart;

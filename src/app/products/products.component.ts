@@ -11,6 +11,7 @@ import { Product } from './model';
 })
 export class ProductsComponent implements OnInit, AfterViewInit {
   public productsArr = [];
+  totalProducts = 0;
   listProduct: Product[] = new Array();
   private cart = new CartService();
   faShoppingCart = faShoppingCart;
@@ -21,9 +22,14 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   ) { }
   ngAfterViewInit(): void {
     this.getListProduct();
+    this.totalProducts = this.productService.getCartNum();
+  }
+  countProducts = () => {
+    this.totalProducts = this.productService.getCartNum();
   }
   addProductToCart = (obj: object) => {
     this.cart.addCart(obj);
+    this.totalProducts = this.productService.getCartNum();
   }
 
   getListProduct = () => {
