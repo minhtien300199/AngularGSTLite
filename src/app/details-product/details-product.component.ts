@@ -5,6 +5,8 @@ import { ProductService} from '../products/product.service';
 import {CartService} from '../cart/cart.service';
 import { Product } from '../products/model';
 import { EventEmitterService } from '../event-emitter.service';  
+import { faShoppingCart, faInfoCircle, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-details-product',
   templateUrl: './details-product.component.html',
@@ -19,9 +21,9 @@ implements OnInit  {
   manufacturer = localStorage.getItem('currentDetailsProductManufacturer');
   unitInStock = localStorage.getItem('currentDetailsProductUnitInStock');
   unitPrice = localStorage.getItem('currentDetailsProductUnitPrice');
-  //private cart = new CartService();
-  //totalProducts = 0;
-
+  totalProducts = this.productService.getCartNum();
+  faShoppingCart = faShoppingCart;
+  faArrowCircleLeft = faArrowCircleLeft;
   constructor(
     private eventEmitterService: EventEmitterService,
     public router: Router,
@@ -33,9 +35,11 @@ implements OnInit  {
 
   
   addToCartFromProduct(){    
-    this.eventEmitterService.onFirstComponentButtonClick(this.detailsProductService.product);    
+    this.eventEmitterService.onFirstComponentButtonClick(this.detailsProductService.product);
+    this.totalProducts = this.productService.getCartNum();
   }
   ngOnInit(): void {
    
   }
+
 }

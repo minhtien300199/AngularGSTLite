@@ -1,4 +1,4 @@
-<app-header title="Products" subtitle="More infomation" button="view-cart"></app-header>
+<app-header title="Products" subtitle="More infomation" button="view-cart" count={{totalProducts}}></app-header>
 <main>
     <div class="container-fluid">
         <div class="row">
@@ -56,10 +56,13 @@
                 </label>
                 <div class="row col-sm-5">
                     <a href="">
-                        <button type="submit" class="btn btn-success mx-1 text-white"><i
-                            class="fas fa-arrow-circle-left" ></i>back</button>
+                        <button type="submit" class="btn btn-success mx-1 text-white">
+                            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+                            back</button>
                     </a>
-                    <button (click)=" addToCartFromProduct()" type="submit" class="btn btn-warning mx-1 text-white">Orther Now</button>
+                    <button (click)=" addToCartFromProduct()" type="submit" class="btn btn-warning mx-1 text-white">
+                        <fa-icon [icon]="faShoppingCart"></fa-icon>
+                        Orther Now</button>
                 </div>
             </div>
             <div class="col-1">
