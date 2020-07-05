@@ -12,6 +12,7 @@ import { AddProcductComponent } from './add-procduct/add-procduct.component';
 import { CartComponent } from './cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsProductComponent } from './details-product/details-product.component';
+import {EventEmitterService} from './event-emitter.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { DetailsProductComponent } from './details-product/details-product.compo
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [EventEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
