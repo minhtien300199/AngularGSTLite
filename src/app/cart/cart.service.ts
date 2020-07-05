@@ -12,10 +12,11 @@ export class CartService {
   public addCart = (item) => {
     item.quantity = 1;
     item.price = parseFloat(item.unitPrice);
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let flag = 0;
-    if (this.cartArr.length > 0) {
+    if (cart.length > 0) {
       //  sau khi add 1 product bất kì
-      this.cartArr.forEach(el => {
+      cart.forEach(el => {
         if (el.id === item.id) {
           el.quantity += 1;
           el.price = el.price *  el.quantity;
@@ -24,13 +25,13 @@ export class CartService {
         }
       });
       if (flag === 0) {
-        this.cartArr.push(item);
+        cart.push(item);
       }
     } else {
-      this.cartArr.push(item);
+      cart.push(item);
     }
-    console.log(this.cartArr);
-    localStorage.setItem('cart', JSON.stringify(this.cartArr));
+    console.log(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
   public sumCart = () => {
     let sum = 0;
