@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   constructor(
     private productService: ProductService,
     private router: Router, 
-    private detailsProductService: DetailsProductService
+    private detailsProductService: DetailsProductService,
     private cdr: ChangeDetectorRef
   ) { }
   ngAfterViewInit(): void {
