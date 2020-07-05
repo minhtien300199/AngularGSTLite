@@ -10,10 +10,10 @@
                     <h6 class="card-subtitle mb-2 text-muted">{{data.description}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <p class="money">{{data.unitPrice}} USD</p>
-                    <a href="detailsProduct" class="card-link btn btn-primary">
+                    <button (click)="detailsProduct(data)" class="card-link btn btn-primary">
                         <fa-icon [icon]="faInfoCircle"></fa-icon>
                         Detail
-                    </a>
+                    </button>
                     <button (click)="addProductToCart(data)" class="card-link btn btn-warning">
                         <fa-icon [icon]="faShoppingCart"></fa-icon>
                         Order now</button>

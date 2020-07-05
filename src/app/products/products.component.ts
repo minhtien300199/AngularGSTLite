@@ -4,6 +4,7 @@ import { ProductService} from './product.service';
 import {CartService} from '../cart/cart.service';
 import { Router } from '@angular/router';
 import { Product } from './model';
+import { DetailsProductService } from '../details-product/detailsProduct.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -18,7 +19,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   faInfoCircle = faInfoCircle;
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router, 
+    private detailsProductService: DetailsProductService
   ) { }
   ngAfterViewInit(): void {
     this.getListProduct();
@@ -32,6 +34,11 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     this.totalProducts = this.productService.getCartNum();
   }
 
+  detailsProduct = (obj: object) => {
+    console.log(obj);
+    this.detailsProductService.showDetailsProduct(obj);
+
+  }
   getListProduct = () => {
     this.productService.getListProduct().subscribe(
       (data) => {
