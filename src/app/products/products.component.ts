@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { faShoppingCart, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { ProductService} from './product.service';
 import {CartService} from '../cart/cart.service';
@@ -18,11 +18,13 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   faInfoCircle = faInfoCircle;
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) { }
   ngAfterViewInit(): void {
     this.getListProduct();
     this.totalProducts = this.productService.getCartNum();
+    this.cdr.detectChanges();
   }
   countProducts = () => {
     this.totalProducts = this.productService.getCartNum();
