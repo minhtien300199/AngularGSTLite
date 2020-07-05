@@ -6,12 +6,18 @@ background-color: rgb(238, 238, 238);
     <div class="row">
       <div class="col">
         <h1 style="font-size: 5rem; padding-top: 50px;">
-          {{ title }}
+          <a href="" class="text-dark">{{ title }}</a>
         </h1>
         <span class="lead">{{ subtitle }}</span>
       </div>
       <div class="col text-right">
-        <button *ngIf="button === 'logout' else button === 'login'" type="button" style="margin-top: 30px;" class="btn btn-danger"
+        <button *ngIf="btnlogin === 'login'" type="button" style="margin-top: 30px; margin-right: 2%;" class="btn btn-success">
+          <a routerLink="/login" class="text-white">
+            <fa-icon [icon]="faSignInAlt"></fa-icon>
+            Login
+          </a>
+        </button>
+        <button *ngIf="btnlogout === 'logout'" type="button" style="margin-top: 30px;  margin-right: 2%;" class="btn btn-danger"
           (click)='onLogout()'>
           <fa-icon [icon]="faSignOutAlt"></fa-icon>
           logout
@@ -22,7 +28,6 @@ background-color: rgb(238, 238, 238);
             View cart <span class="badge badge-secondary">{{count}}</span>
           </a>
         </button>
-
       </div>
     </div>
   </div>
