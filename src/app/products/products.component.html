@@ -1,33 +1,24 @@
-<app-header title="Products" subtitle="All available Products in our store" button="view-cart"></app-header>
-<div class="container">
+<app-header title="Products" subtitle="All available Products in our store" button="view-cart" count={{totalProducts}}></app-header>
+<div class="container-fuild">
     <div class="row">
-
-
-
-        <div *ngFor="let data of listProduct;" class="col-3">
-            <div class="card" style="width: 18rem;">
+        <div *ngFor="let data of listProduct;" class="col-3 d-flex justify-content-center">
+            <div class="card" style="width: 18em;">
                 <div class="card-body">
                     <h5 class="card-title">{{data.productName}}</h5>
                     <img src="https://picsum.photos/200/300" alt="test">
                     <p></p>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{data.description}}</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="money">{{data.price}} USD</p>
-                    <a href="detailsProduct" class="card-link btn btn-primary">
+                    <p class="money">{{data.unitPrice}} USD</p>
+                    <button (click)="detailsProduct(data)" class="card-link btn btn-primary">
                         <fa-icon [icon]="faInfoCircle"></fa-icon>
                         Detail
-                    </a>
-                    <a href="#" class="card-link btn btn-warning">
+                    </button>
+                    <button (click)="addProductToCart(data)" class="card-link btn btn-warning">
                         <fa-icon [icon]="faShoppingCart"></fa-icon>
-                        Order now</a>
+                        Order now</button>
                 </div>
             </div>
-            
         </div>
-
-
-
-
-        
     </div>
 </div>

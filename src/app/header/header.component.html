@@ -16,10 +16,11 @@ background-color: rgb(238, 238, 238);
           <fa-icon [icon]="faSignOutAlt"></fa-icon>
           logout
         </button>
-        <button *ngIf="button === 'view-cart'" type="button" style="margin-top: 30px;" class="btn btn-light"
-          routerLink="/cart">
-          <fa-icon [icon]="faShoppingCart"></fa-icon>
-          View cart
+        <button *ngIf="button === 'view-cart'" type="button" style="margin-top: 30px;" class="btn btn-light">
+          <a routerLink="/cart">
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
+            View cart <span class="badge badge-secondary">{{count}}</span>
+          </a>
         </button>
 
       </div>

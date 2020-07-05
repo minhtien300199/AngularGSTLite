@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   @Input() title = '';
   @Input() subtitle = '';
   @Input() button = '';
+  @Input() count = '0';
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router

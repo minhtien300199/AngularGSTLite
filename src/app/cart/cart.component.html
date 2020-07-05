@@ -1,8 +1,8 @@
 <app-header title="My Cart" subtitle="All selected products in your cart" button=""></app-header>
 
-<div class="container">
+<div class="container" *ngIf="tableShow; else elseBlock">
   <div>
-    <button class="btn btn-danger float-left" style="margin-bottom:1%">
+    <button class="btn btn-danger float-left" style="margin-bottom:1%" (click)="removeAllProducts()">
       <fa-icon [icon]="faTrashAlt"></fa-icon>
       Clear Cart
     </button>
@@ -21,7 +21,7 @@
       <th scope="col">Price</th>
       <th scope="col">Action</th>
     </tr>
-    <tr>
+    <!-- <tr>
       <td style="width: 40%;">Iphone XS Pro Maximum 512 Gigabytes</td>
       <td>1</td>
       <td>{{1500 | currency}}</td>
@@ -30,9 +30,18 @@
           <fa-icon [icon]="faTrashAlt"></fa-icon>
           Remove
         </button></td>
-
-    </tr>
-    <tr>
+    </tr> -->
+      <tr *ngFor="let cart of carts">
+        <td>{{cart.productName}}</td>
+        <td>{{cart.quantity}}</td>
+        <td>{{cart.unitPrice | currency}}</td>
+        <td>{{cart.price | currency}}</td>
+        <td><button class="btn btn-danger" style="margin-top:-3%" (click)="removeOneProduct(cart.id)">
+            <fa-icon [icon]="faTrashAlt"></fa-icon>
+            Remove
+          </button></td>
+      </tr>
+    <!-- <tr>
       <td>Iphone X</td>
       <td>1</td>
       <td>{{1500 | currency}}</td>
@@ -41,34 +50,36 @@
           <fa-icon [icon]="faTrashAlt"></fa-icon>
           Remove
         </button></td>
-
-    </tr>
-    <tr>
-      <td>Iphone X</td>
-      <td>1</td>
-      <td>{{1500 | currency}}</td>
-      <td>{{1500 | currency}}</td>
-      <td><button class="btn btn-danger" style="margin-top:-3%">
-          <fa-icon [icon]="faTrashAlt"></fa-icon>
-          Remove
-        </button></td>
-
-    </tr>
+    </tr> -->
 
     <tr>
       <td></td>
       <td></td>
       <td><b>Grand Total:</b></td>
-      <td>{{5500 | currency}}</td>
+      <td>{{total | currency}}</td>
       <td></td>
 
     </tr>
   </table>
-  
   <div>
+    <a href="/">
       <button class="btn btn-success">
         <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
         Continue shopping
       </button>
+    </a>
   </div>
 </div>
+<ng-template #elseBlock>
+  <h1 class="header-title">
+    <div>
+      Nothing in your cart!
+    </div>
+    <a href="/">
+      <button class="btn btn-success">
+        <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+        Continue shopping
+      </button>
+    </a>
+  </h1>
+</ng-template>
