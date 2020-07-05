@@ -9,14 +9,14 @@ import { map } from 'rxjs/operators';
 })
 export class ProductService {
     public  listProduct:Product[] = new Array()
-    private urlAPI = 'https://5eff224edfd1400016ae0db5.mockapi.io/RESTfulAPIusingSpringBoot';
+    private urlAPI = 'http://localhost:8080/RESTful-API-using-Spring-Boot';
     constructor(private http: HttpClient) {
 
     }
 
     public getListProduct = () => {
 
-        const getListProductUrl = `${this.urlAPI}/product`;
+        const getListProductUrl = `${this.urlAPI}/api/v1/product/list`;
         console.log(getListProductUrl);
 
         return this.http
@@ -28,8 +28,8 @@ export class ProductService {
                         listProduct.forEach(element => {
                             const product = {} as Product;
                             product.id = element.id;
-                            product.productName = element.product_name;
-                            product.price = element.unit_price;
+                            product.productName = element.productName;
+                            product.price = element.price;
                             console.log(product)
                             this.listProduct.push(product);
                         });
