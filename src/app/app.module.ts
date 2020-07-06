@@ -24,6 +24,7 @@ import { ListProductComponent } from './list-product/list-product.component'
     CartComponent,
     DetailsProductComponent,
     ListProductComponent
+    UploadImageComponent
   ],
   imports: [
     BrowserModule,
