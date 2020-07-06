@@ -1,32 +1,33 @@
-<app-header title="Products" subtitle="Add product" button="logout"></app-header>
+<app-header title="Products" subtitle="Add product" btnlogout="logout" button="logout"></app-header>
 <main>
     <div class="container">
         <p style="font-size: 25px;">Add new product</p>
         <div class="row">
             <div class="col-8">
-                <form class="border border-dark" style="padding: 1% 1% 1% 6%;">
+                <form class="border border-dark" style="padding: 1% 1% 1% 6%;" (ngSubmit)="clickSubmit()" #addProductForm ="ngForm" >
+                    <!-- <form (ngSubmit)="login()" #loginForm="ngForm"> -->
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Product Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" />
+                            <input type="text" class="form-control" id="productName" value="" placeholder="" name = "productName" [(ngModel)]="productName"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Unit Price</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" />
+                            <input type="text" class="form-control" id="unitPrice" name= "unitPrice" [(ngModel)]="unitPrice" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Units In Stock</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" />
+                            <input type="text" class="form-control" id="unitInStock" name = "unitInStock" [(ngModel)]="unitInStock"/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Description</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" style="height: 200%;" />
+                            <input type="text" class="form-control" id="description" style="height: 200%;" name="description" [(ngModel)]="description" />
                         </div>
                     </div>
                     <br/>
@@ -34,30 +35,30 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Manufacturer</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" />
+                            <input type="text" class="form-control" id="manufacturer" name ="manufacturer" [(ngModel)]="manufacturer" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Category</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="#" />
+                            <input type="text" class="form-control" id="groupId" name="productGroupId" [(ngModel)]="productGroupId" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-3 col-form-label">Category</label>
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Condition</label>
                         <div class="col-sm-9 row" style="padding-left: 4%;">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                <input class="form-check-input" type="radio" name="productCondition" id="newCondition" [(ngModel)]="productCondition"
                                     value="option1">
                                 <label class="form-check-label" for="inlineRadio1">New</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                <input class="form-check-input" type="radio" name="productCondition" id="oldCondition" [(ngModel)]="productCondition"
                                     value="option2">
                                 <label class="form-check-label" for="inlineRadio2">Old</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                <input class="form-check-input" type="radio" name="productCondition" id="refurbishedCondition" [(ngModel)]="productCondition"
                                     value="option3">
                                 <label class="form-check-label" for="inlineRadio3">Refurbished</label>
                             </div>
@@ -67,15 +68,19 @@
                         <label for="staticEmail" class="col-sm-3 col-form-label">Product Image File</label>
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                <input type="file" class="custom-file-input" id="fileImage"
                                     aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <label class="custom-file-label" for="fileImage">Choose file</label>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-start">
-                        <button type="submit" class="btn btn-primary mx-1">Add Product</button>
-                        <button type="submit" class="btn btn-danger mx-1">Back</button>
+                        <button type="submit"  class="btn btn-primary mx-1">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                            Add Product</button>
+                        <button type="submit" class="btn btn-danger mx-1">
+                            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+                            Back</button>
                     </div>
                 </form>
             </div>

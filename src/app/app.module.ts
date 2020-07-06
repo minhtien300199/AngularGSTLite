@@ -12,8 +12,9 @@ import { AddProcductComponent } from './add-procduct/add-procduct.component';
 import { CartComponent } from './cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsProductComponent } from './details-product/details-product.component';
-import { UploadImageComponent } from './upload-image/upload-image.component';
-import {EventEmitterService} from './event-emitter.service'
+import {EventEmitterService} from './event-emitter.service';
+import { ListProductComponent } from './list-product/list-product.component'
+import { UploadImageComponent } from './upload-image/upload-image.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import {EventEmitterService} from './event-emitter.service'
     AddProcductComponent,
     CartComponent,
     DetailsProductComponent,
+    ListProductComponent,
     UploadImageComponent
   ],
   imports: [
