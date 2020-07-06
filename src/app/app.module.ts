@@ -12,7 +12,8 @@ import { AddProcductComponent } from './add-procduct/add-procduct.component';
 import { CartComponent } from './cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsProductComponent } from './details-product/details-product.component';
-import {EventEmitterService} from './event-emitter.service'
+import {EventEmitterService} from './event-emitter.service';
+import { ListProductComponent } from './list-product/list-product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {EventEmitterService} from './event-emitter.service'
     ProductsComponent,
     AddProcductComponent,
     CartComponent,
-    DetailsProductComponent
+    DetailsProductComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,
