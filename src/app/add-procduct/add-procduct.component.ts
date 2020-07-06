@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AddProductService } from './addProduct.service';
 import { Router } from '@angular/router';
 import { Product} from './model'
@@ -48,7 +48,7 @@ export class AddProcductComponent implements OnInit {
     const uploadData = new FormData();
     uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
     console.log(this.selectedFile.name);
-    this.HttpClient.post<any>('http://localhost:8080/mobilestore/api/v1/image/upload', uploadData, this.receiveProduct.id)
+    this.HttpClient.post<any>('http://localhost:8080/mobilestore/api/v1/image/upload/', uploadData)
       .subscribe(
         res =>{
           console.log(res);
@@ -59,6 +59,7 @@ export class AddProcductComponent implements OnInit {
         },
 
         err =>{
+          console.log("Không upload ảnh được!");
           console.log(err);
         }
       )

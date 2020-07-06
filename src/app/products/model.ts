@@ -6,6 +6,6 @@ export class Product {
     unitInStock: Int16Array;
     productCondition: string;
     manufacturer: string;
-    imgPath: string;
+    imgCode: string;
     // tslint:disable-next-line:eofline
     }

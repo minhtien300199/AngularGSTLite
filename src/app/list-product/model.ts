@@ -11,5 +11,7 @@ export class Product {
     imgPath: string;
     productGroupId: Int32Array;
     userId: Int32Array;
+    userName: string;
+    groupName: string;
     // tslint:disable-next-line:eofline
     }

@@ -14,7 +14,7 @@ import { faShoppingCart, faInfoCircle, faArrowCircleLeft } from '@fortawesome/fr
 })
 export class DetailsProductComponent
 implements OnInit  {
-  
+  imgCode = localStorage.getItem('currentDetailsImgCode');
   productName = localStorage.getItem('currentDetailsProductName');
   description = localStorage.getItem('currentDetailsProductDescription');
   id = localStorage.getItem('currentDetailsProductId');

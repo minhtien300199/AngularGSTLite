@@ -18,27 +18,34 @@ export class ProductService {
     }
     public getListProduct = () => {
 
-        const getListProductUrl = `${this.urlAPI}/api/v1/product/list`;
+        const getListProductUrl = `${this.urlAPI}/api/v1/image/list`;
         console.log(getListProductUrl);
         this.listProduct = new Array();
         return this.http
             .get<any>(getListProductUrl)
             .pipe(
-                map((listProduct) => {
-                    console.log(listProduct);
-                    if (listProduct != null) {
-                        listProduct.forEach(item => {
+                map((lst) => {
+                    console.log(lst);
+                    if (lst != null) {
+                        lst.forEach(item => {
                             const product = {} as Product;
-                            product.id = item.id;
-                            product.productName = item.productName;
-                            product.unitPrice = item.unitPrice;
-                            product.description = item.description;
-                            product.unitInStock = item.unitInStock;
-                            product.productCondition = item.productCondition;
-                            product.manufacturer = item.manufacturer;
-                            product.imgPath = item.imgPath;
-                            console.log(product);
-                            this.listProduct.push(product);
+
+                            try {
+                                product.id = item.product.id;
+                                product.productName = item.product.productName;
+                                product.unitPrice = item.product.unitPrice;
+                                product.description = item.product.description;
+                                product.unitInStock = item.product.unitInStock;
+                                product.productCondition = item.product.productCondition;
+                                product.manufacturer = item.product.manufacturer;
+                                product.imgCode = item.picByte;
+                                
+                                console.log(product);
+                                this.listProduct.push(product);
+
+                            } catch (err) {
+                                console.log(err);
+                            }
                         });
                         return this.listProduct;
                     } else {

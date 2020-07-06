@@ -6,10 +6,9 @@
             <div class="card" style="width: 18em;">
                 <div class="card-body">
                     <h5 class="card-title">{{data.productName}}</h5>
-                    <img src="https://picsum.photos/200/300" alt="test">
+                    <img src="data:image/gif;base64,{{data.imgCode}}" alt="test">
                     <p></p>
-                    <h6 class="card-subtitle mb-2 text-muted">{{data.description}}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h6 class="card-subtitle mb-2 text-muted">{{data.description}}</h6> 
                     <p class="money">{{data.unitPrice}} USD</p>
                     <button (click)="detailsProduct(data)" class="card-link btn btn-primary">
                         <fa-icon [icon]="faInfoCircle"></fa-icon>

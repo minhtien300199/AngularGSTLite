@@ -31,14 +31,14 @@ export class ListProductService {
                             product.productName = item.productName;
                             product.unitPrice = item.unitPrice;
                             product.unitInStock = item.unitInStock;
-                            //product.description = item.description;
                             product.manufacturer = item.manufacturer;
                             product.isDisable = item.isDisabled;
                             product.productCondition = item.productCondition;
                             product.productGroupId = item.productGroupId;
                             product.userId = item.userId;
                             product.createAt = item.createdAt;
-                            //product.imgPath = item.imgPath;
+                            product.groupName = item.productGroup.groupName;
+                            product.userName = item.users.fullname;
                             console.log(product);   
                             this.listProduct.push(product);
                         });

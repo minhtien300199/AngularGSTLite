@@ -26,6 +26,7 @@ export class DetailsProductService {
             localStorage.removeItem('currentDetailsProductUnitInStock');
             localStorage.removeItem('currentDetailsProductName');
             localStorage.removeItem('currentDetailsProductUnitPrice');
+            localStorage.removeItem('currentDetailsImgCode');
         }
         this.router.navigateByUrl('/detailsProduct');
         console.log(item.id)
@@ -36,6 +37,7 @@ export class DetailsProductService {
         localStorage.setItem('currentDetailsProductManufacturer', item.manufacturer);
         localStorage.setItem('currentDetailsProductUnitInStock', item.unitInStock);
         localStorage.setItem('currentDetailsProductUnitPrice', item.unitPrice);
+        localStorage.setItem('currentDetailsImgCode', item.imgCode);
         this.product = item;
       }
 

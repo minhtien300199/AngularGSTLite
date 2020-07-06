@@ -1,57 +1,65 @@
-<app-header title="Product" subtitle="Manager Products in our store" btnlogout="logout" btnlogin="" button="" count=""></app-header>
+<app-header title="Product" subtitle="Manager Products in our store" btnlogout="logout" btnlogin="" button="" count="">
+</app-header>
 <main>
-    <div class="container-fuild">
-      <div class="col text-center">
-        <button class="btn btn-success" type="button" style="margin-bottom: 30px;" >
+  <div class="container-fluid">
+    <div class="row">
+
+      <div  class="col-1"></div>
+
+      <div class="col-10">
+        <button class="btn btn-success" type="button" style="margin-bottom: 30px;">
           <a routerLink="/addProduct" class="text-white">
             <fa-icon [icon]="faPlus"></fa-icon>
             Add Product
           </a>
         </button>
       </div>
-        <table class="table">
-            <thead>
-              <tr class="table-success">
-                <!-- <th scope="col">STT</th> -->
-                <th scope="col">ID</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Unit In Stock</th>
-                <th scope="col">Manufacturer</th>
-                <th scope="col">Is Disable</th>
-                <th scope="col">Product Condition</th>
-                <th scope="col">Product Group ID</th>
-                <th scope="col">User ID</th>
-                <th scope="col">Create At</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of listProduct">
-                <td>{{data.id}}</td>
-                <td>{{data.productName}}</td>
-                <td>{{data.unitPrice}}</td>
-                <td>{{data.unitInStock}}</td>
-                <td>{{data.manufacturer}}</td>
-                <td>{{data.isDisable}}</td>
-                <td>{{data.productCondition}}</td>
-                <td>{{data.productGroupId}}</td>
-                <td>{{data.userId}}</td>
-                <td>{{data.createAt}}</td>
-                <td>
-                  <div class="col text-right">
-                    <button class="btn btn-primary" type="button" style="margin-right: 1%;">
-                      <fa-icon [icon]="faInfoCircle"></fa-icon>
-                      Details
-                    </button>
-                    <button class="btn btn-danger" type="button">
-                      <fa-icon [icon]="faTrashAlt"></fa-icon>
-                      Remove
-                    </button>
-                  </div>
-                </td>
-              </tr>  
-            </tbody>
-          </table>
     </div>
+    <div class="row">
+      <div class="col-1">
+
+      </div>
+
+      <div class="col-10">
+        <table class="table">
+          <thead>
+            <tr class="table-success">
+              <!-- <th scope="col">STT</th> -->
+              <th scope="col">Product Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Manufacturer</th>
+              <th scope="col">Condition</th>
+              <th scope="col">Group</th>
+              <th scope="col">User</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of listProduct">
+              <td>{{data.productName}}</td>
+              <td>{{data.unitPrice}}$</td>
+              <td>{{data.unitInStock}}</td>
+              <td>{{data.manufacturer}}</td>
+              <td>{{data.productCondition}}</td>
+              <td>{{data.groupName}}</td>
+              <td>{{data.userName}}</td>
+              <td>
+                <div class="col text-right">
+                  <button class="btn btn-primary" type="button" style="margin-right: 1%;">
+                    <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    Details
+                  </button>
+                  <button class="btn btn-danger" type="button">
+                    <fa-icon [icon]="faTrashAlt"></fa-icon>
+                    Remove
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </main>
