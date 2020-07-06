@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
 import { AddProductService } from './addProduct.service';
 import { Router } from '@angular/router';
 import { Product} from './model'
 import { faShoppingCart, faInfoCircle, faPlus, faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -13,14 +14,24 @@ import { faShoppingCart, faInfoCircle, faPlus, faArrowCircleLeft } from '@fortaw
 })
 export class AddProcductComponent implements OnInit {
 
-  product: Product;
+  public product: Product;
+  productName = '';
+  unitPrice= '';
+  unitInStock ='';
+  productCondition = '';
+  description = '';
+  manufacturer = '';
+  productGroupId = '';
   constructor(
     private addProductService: AddProductService
   ) { }
 
   clickSubmit () {
-    this.product.productName = (<HTMLInputElement>document.getElementById('productName')).value;
-    console.log(this.product.productName);
+    console.log(this.productName);
+    this.addProductService.addProduct(this.productName, this.unitPrice,this.unitInStock,
+       this.description, this.manufacturer, 
+       this.productCondition, String(this.productGroupId), "1").subscribe();
+  
   }
 
   ngOnInit(): void {

@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import {EventEmitterService} from './event-emitter.service';
 import { ListProductComponent } from './list-product/list-product.component'
+import { UploadImageComponent } from './upload-image/upload-image.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { ListProductComponent } from './list-product/list-product.component'
     AddProcductComponent,
     CartComponent,
     DetailsProductComponent,
-    ListProductComponent
+    ListProductComponent,
     UploadImageComponent
   ],
   imports: [

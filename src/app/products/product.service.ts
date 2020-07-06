@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProductService {
     public  listProduct: Product[] = new Array();
-    private urlAPI = 'http://localhost:8080/mobilestore';
+    private urlAPI = 'http://demo4279480.mockable.io';
     constructor(private http: HttpClient) {
 
     }
@@ -19,7 +19,7 @@ export class ProductService {
     }
     public getListProduct = () => {
 
-        const getListProductUrl = `${this.urlAPI}/api/v1/product/list`;
+        const getListProductUrl = `${this.urlAPI}/product`;
         console.log(getListProductUrl);
         this.listProduct = new Array();
         return this.http

@@ -1,5 +1,5 @@
+import { ProductsComponent } from './../products/products.component';
 import { Injectable } from '@angular/core';
-import { Product } from './model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
@@ -9,6 +9,30 @@ import { map } from 'rxjs/operators';
 
 export class AddProductService {
 
-    constructor() { }
+    public urlAPI = 'http://mobilestore-server.herokuapp.com/product/add'
+    constructor(private http: HttpClient) { }
+
+    addProduct = (  productName : String,
+    unitPrice : String,
+    unitInStock: String,
+    description:String,
+    manufacturer: String,
+    productCondition :String,
+    productGroupId: String,
+    userId : String ) =>
+    {
+        return this.http.post<any>(this.urlAPI, {
+            productName,
+            unitPrice,
+            unitInStock,
+            description,
+            manufacturer,
+            productCondition,
+            productGroupId,
+            userId
+            
+            
+        })
+    }
     
 }
