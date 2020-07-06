@@ -21,7 +21,7 @@ export class ProductService {
 
         const getListProductUrl = `${this.urlAPI}/api/v1/product/list`;
         console.log(getListProductUrl);
-
+        this.listProduct = new Array();
         return this.http
             .get<any>(getListProductUrl)
             .pipe(

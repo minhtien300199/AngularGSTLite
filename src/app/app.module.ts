@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsProductComponent } from './details-product/details-product.component';
 import { UploadImageComponent } from './upload-image/upload-image.component';
+import {EventEmitterService} from './event-emitter.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { UploadImageComponent } from './upload-image/upload-image.component';
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [EventEmitterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<app-header title="Products" subtitle="More infomation" button=""></app-header>
+<app-header title="Products" subtitle="More infomation" button="view-cart" count={{totalProducts}}></app-header>
 <main>
     <div class="container-fluid">
         <div class="row">
@@ -20,46 +20,49 @@
                     {{description}}
                 </p>
                 <div class="row">
-                    <p class="col-sm-2" style="font-weight: bold;">
+                    <p class="col-sm-4" style="font-weight: bold;">
                         Item Code:
                     </p>
-                    <p class="text-white bg-warning col-sm-2" style="font-size: small; align-self: center;">
+                    <p class="text-white bg-warning col-sm-4" style="font-size: small; align-self: center;">
                         {{id}}
                     </p>
                 </div>
                 <div class="row">
-                    <p class="col-sm-2" style="font-weight: bold;">
+                    <p class="col-sm-4" style="font-weight: bold;">
                         Manufacturer:
                     </p>
-                    <p class="col-sm-2">
+                    <p class="col-sm-4">
                         {{manufacturer}}
                     </p>
                 </div>
                 <div class="row">
-                    <p class="col-sm-2" style="font-weight: bold;">
+                    <p class="col-sm-4" style="font-weight: bold;">
                         Category:
                     </p>
-                    <p class="col-sm-2">
+                    <p class="col-sm-4">
                         <a href="#">Apple</a>
                     </p>
                 </div>
                 <div class="row">
-                    <p class="col-sm-2" style="font-weight: bold;">
+                    <p class="col-sm-4" style="font-weight: bold;">
                         Availble units in stock:
                     </p>
-                    <p style="align-self: flex-end;" class="col-sm-2">
+                    <p style="align-self: flex-end;" class="col-sm-4">
                         {{unitInStock}}
                     </p>
                 </div>
                 <label for="" style="font-size: xx-large;">
                     {{unitPrice}} USD
                 </label>
-                <div class="row col-sm-5">
+                <div class="row col-sm-7">
                     <a href="">
-                        <button type="submit" class="btn btn-success mx-1 text-white"><i
-                            class="fas fa-arrow-circle-left"></i>back</button>
+                        <button type="submit" class="btn btn-success mx-1 text-white">
+                            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+                            back</button>
                     </a>
-                    <button type="submit" class="btn btn-warning mx-1 text-white">Orther Now</button>
+                    <button (click)=" addToCartFromProduct()" type="submit" class="btn btn-warning mx-1 text-white">
+                        <fa-icon [icon]="faShoppingCart"></fa-icon>
+                        Orther Now</button>
                 </div>
             </div>
             <div class="col-1">
