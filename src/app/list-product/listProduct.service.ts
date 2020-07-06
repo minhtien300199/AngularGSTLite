@@ -9,14 +9,14 @@ import { map } from 'rxjs/operators';
 })
 export class ListProductService {
     public  listProduct: Product[] = new Array();
-    private urlAPI = 'http://demo4279480.mockable.io';
+    private urlAPI = 'http://localhost:8080/mobilestore';
     constructor(private http: HttpClient) {
 
     }
 
 
     public getListProduct = () => {
-        const getListProductUrl = `${this.urlAPI}/products`;
+        const getListProductUrl = `${this.urlAPI}/api/v1/product/list`;
         console.log(getListProductUrl);
         this.listProduct = new Array();
         return this.http
@@ -28,16 +28,16 @@ export class ListProductService {
                         listProduct.forEach(item => {
                             const product = {} as Product;
                             product.id = item.id;
-                            product.productName = item.product_name;
-                            product.unitPrice = item.unit_price;
-                            product.unitInStock = item.unit_in_stock;
+                            product.productName = item.productName;
+                            product.unitPrice = item.unitPrice;
+                            product.unitInStock = item.unitInStock;
                             //product.description = item.description;
                             product.manufacturer = item.manufacturer;
-                            product.isDisable = item.isDisable;
+                            product.isDisable = item.isDisabled;
                             product.productCondition = item.productCondition;
                             product.productGroupId = item.productGroupId;
                             product.userId = item.userId;
-                            product.createAt = item.createAt;
+                            product.createAt = item.createdAt;
                             //product.imgPath = item.imgPath;
                             console.log(product);   
                             this.listProduct.push(product);

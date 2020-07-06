@@ -15,13 +15,13 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Unit Price</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="unitPrice" name= "unitPrice" [(ngModel)]="unitPrice" />
+                            <input type="number" class="form-control" id="unitPrice" name= "unitPrice" [(ngModel)]="unitPrice" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Units In Stock</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="unitInStock" name = "unitInStock" [(ngModel)]="unitInStock"/>
+                            <input type="number" class="form-control" id="unitInStock" name = "unitInStock" [(ngModel)]="unitInStock"/>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Category</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="groupId" name="productGroupId" [(ngModel)]="productGroupId" />
+                            <input type="number" class="form-control" id="groupId" name="productGroupId" [(ngModel)]="productGroupId" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -68,8 +68,10 @@
                         <label for="staticEmail" class="col-sm-3 col-form-label">Product Image File</label>
                         <div class="col-sm-9">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="fileImage"
-                                    aria-describedby="inputGroupFileAddon01">
+
+                                    <input type="file" class="custom-file-input" (change)="onFileChanged($event)">
+                                    <img [src]="imgURL" height="200" *ngIf="imgURL">
+                                    
                                 <label class="custom-file-label" for="fileImage">Choose file</label>
                             </div>
                         </div>

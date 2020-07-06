@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProductService {
     public  listProduct: Product[] = new Array();
-    private urlAPI = 'https://mobilestore-server.herokuapp.com';
+    private urlAPI = 'http://localhost:8080/mobilestore';
     constructor(private http: HttpClient) {
 
     }

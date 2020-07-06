@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  private urlAPI = 'https://mobilestore-server.herokuapp.com/';
+  private urlAPI = 'http://localhost:8080/mobilestore/';
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('currentUser'))
@@ -22,14 +22,14 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  public login = (username: string, password: string) => {
-    console.log(username);
+  public login = (email: string, password: string) => {
+    console.log(email);
     console.log(password);
     const loginUrl = `${this.urlAPI}/api/v1/user/signin`;
     console.log(loginUrl);
     return this.http
       .post<any>(loginUrl, {
-        username,
+        email,
         password,
       })
       .pipe(
@@ -38,7 +38,8 @@ export class AuthenticationService {
           if (user != null) {
             const newUser = {} as User;
             newUser.id = user.id;
-            newUser.username = user.username;
+            newUser.email = user.email;
+            newUser.role = user.role;
             newUser.password = user.password;
             this.currentUserSubject.next(newUser);
             return user;

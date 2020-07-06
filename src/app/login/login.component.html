@@ -7,7 +7,7 @@
     <div class="card-body">
       <form (ngSubmit)="login()" #loginForm="ngForm">
         <div class="form-group">
-          <input type="text" class="form-control" id="inputUser" placeholder="User Name" [(ngModel)]="userName"
+          <input type="text" class="form-control" id="inputUser" placeholder="User Name" [(ngModel)]="email"
             [ngModelOptions]="{ standalone: true }" required />
         </div>
         <div class="form-group">

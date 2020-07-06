@@ -7,20 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public userName = 'aumauduong';
-  public password = 'aumauduong';
+  public email = '';
+  public password = '';
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
   ) { }
   login = () => {
-    this.authenticationService.login(this.userName, this.password).subscribe(
+    this.authenticationService.login(this.email, this.password).subscribe(
     (data) => {
-    if (data != null && data.username) {
-    localStorage.setItem('username', data.username);
+    if (data != null && data.email) {
+    localStorage.setItem('username', data.email);
     localStorage.setItem('password', data.password);
     console.log('login Success');
-    // this.router.navigateByUrl('/productList');
+    this.router.navigateByUrl('/listProduct');
     } else{
     console.log('login fail');
     }

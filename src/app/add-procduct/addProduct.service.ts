@@ -9,7 +9,8 @@ import { map } from 'rxjs/operators';
 
 export class AddProductService {
 
-    public urlAPI = 'http://mobilestore-server.herokuapp.com/product/add'
+    //public urlAPI = 'http://mobilestore-server.herokuapp.com/product/add'
+    public urlAPI = 'http://localhost:8080/mobilestore/api/v1/product/add'
     constructor(private http: HttpClient) { }
 
     addProduct = (  productName : String,

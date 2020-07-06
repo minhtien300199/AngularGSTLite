@@ -1,6 +1,7 @@
 export class User {
     id: Int32Array;
-    username: string;
+    email: string;
     password: string;
+    role: string;
     // tslint:disable-next-line:eofline
     }
